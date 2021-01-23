@@ -1,0 +1,11 @@
+select userOrder.*, CONCAT(user.firstName, ' ', user.lastName) as name from userOrder INNER JOIN user ON userOrder.userId = user.id;
+
+select userOrderDetails.*, userOrder.totalAmount AS grandTotal, pizza.title from userOrderDetails INNER JOIN userOrder ON userOrderDetails.orderId = userOrder.id INNER JOIN pizza ON userOrderDetails.pizzaId = pizza.id where userOrder.userId = 2;
+
+
+for url => http://localhost:4000/order/2/2
+select userOrderDetails.*, userOrder.totalAmount AS grandTotal, pizza.title 
+    from userOrderDetails INNER JOIN userOrder 
+    ON userOrderDetails.orderId = userOrder.id INNER JOIN pizza 
+    ON userOrderDetails.pizzaId = pizza.id where userOrder.userId = 2 AND userOrder.id = 2
+
